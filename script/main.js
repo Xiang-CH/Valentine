@@ -255,7 +255,7 @@ const animationTimeline = () => {
       y: 30,
       zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+    .staggerFrom(".nine", 1, ideaTextTrans, 1.2)
     .to(
       ".last-smile",
       0.5,
@@ -271,6 +271,9 @@ const animationTimeline = () => {
   // Restart Animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
     tl.restart();
   });
 };
@@ -296,12 +299,12 @@ const animationTimeline = () => {
 const resolveFetch = () => {
   return new Promise((resolve, reject) => {
     // fetchData();
-    var audio = new Audio('music/bgm.mp3');
+    
     audio.play();
     resolve("Fetch done!");
   });
 };
 
 
-
+var audio = new Audio('music/bgm.mp3');
 resolveFetch().then(animationTimeline());
