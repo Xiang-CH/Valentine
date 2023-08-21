@@ -298,13 +298,16 @@ const animationTimeline = () => {
 // Run fetch and animation in sequence
 const resolveFetch = () => {
   return new Promise((resolve, reject) => {
-    // fetchData();
-    
-    audio.play();
+    // fetchData(); 
     resolve("Fetch done!");
   });
 };
 
-
 var audio = new Audio('music/bgm.mp3');
-resolveFetch().then(animationTimeline());
+const startclick = document.getElementById("page");
+startclick.addEventListener("click", () => {
+  audio.play();
+  resolveFetch().then(animationTimeline());
+});
+
+
