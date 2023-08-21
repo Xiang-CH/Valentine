@@ -296,8 +296,12 @@ const animationTimeline = () => {
 const resolveFetch = () => {
   return new Promise((resolve, reject) => {
     // fetchData();
+    var audio = new Audio('music/bgm.mp3');
+    audio.play();
     resolve("Fetch done!");
   });
 };
+
+
 
 resolveFetch().then(animationTimeline());
